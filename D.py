@@ -1,43 +1,45 @@
-tElementos = int(input())
-nOperaciones = int(input());
+def main():
+  entradaIni = input()
 
+  tDatos = entradaIni.split(" ")[0]
+  tope = int( entradaIni.split(" ")[1])
 
-numIniciales = input();
+  numsIni = input().split(" ")
+  arrNums = []
 
-arrNums = numIniciales.split(" ")
-arrNums.sort()
+  for a in numsIni:
+    arrNums.append( int(a) )
 
-for i in range( nOperaciones ):
-  entrada = input()
-  entradaSplited = entrada.split(" ")
+  arrNums.sort()
 
-  if(entradaSplited[0] == "2"):
-    total = 0
-    rangeMin = entradaSplited[1]
-    rangeMax = entradaSplited[2]
+  for i in range(tope):
+    op = input().split(" ")
 
-    for a in arrNums:
-      if( a >= rangeMin and a <= rangeMax ):
-        total += 1
-    
-    print( total )
-  else:
-    if( arrNums.__contains__(entradaSplited[1]) == False):
-      if( min(arrNums) < entradaSplited[1]):
+    if op[0] == "2":
+      total = 0
+      rangeMin =int( op[1])
+      rangeMax =int( op[2])
+      
+      for a in arrNums:
+        if( a >= rangeMin and a <= rangeMax ):
+          total += 1
+
+      print(total)
+    elif( op[0] == "1"):
+      numAdd = int(op[1])
+
+      if( min(arrNums) < numAdd ):
 
         index = 0
-        seInserto = False
+        seAgrego = False
 
-        while( seInserto == False and index < arrNums.__len__()):
-          if( arrNums[index] > entradaSplited[1]):
-            arrNums[index] = entradaSplited[1]
-            seInserto = True
+        while index < arrNums.__len__() and seAgrego == False:
+          if( arrNums[index] > numAdd ):
+            seAgrego = True
+            arrNums[index] = numAdd
           else:
             index += 1
 
-        
 
-
-
-
-
+if __name__ == "__main__":
+  main()
