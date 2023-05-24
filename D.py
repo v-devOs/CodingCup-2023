@@ -1,16 +1,12 @@
 def main():
   entradaIni = input()
 
-  tDatos = entradaIni.split(" ")[0]
+  tDatos = int(entradaIni.split(" ")[0])
   tope = int( entradaIni.split(" ")[1])
-
-  numsIni = input().split(" ")
   arrNums = []
 
-  for a in numsIni:
-    arrNums.append( int(a) )
-
-  arrNums.sort()
+  for i in range(tDatos):
+    arrNums.append(int(input()))
 
   for i in range(tope):
     op = input().split(" ")
